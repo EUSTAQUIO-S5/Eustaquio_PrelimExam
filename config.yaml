@@ -1,0 +1,23 @@
+---
+- name: Creating a user with a variable defined in config.yaml
+  hosts: centos, ubuntu
+  become: yes
+
+  vars:
+    python_package: python3
+    pip_package: python3-pip
+    username: your_username_here  
+    home_directory: "/home/{{ username }}"
+    shell: "/bin/bash"  
+
+  tasks:
+    - name: Create motd file
+      template:
+        src: motd.j2
+        dest: /etc/motd
+
+    - name: Create user
+      user:
+        name: "{{ username }}"
+        home: "{{ home_directory }}"
+        shell: "{{ shell }}"

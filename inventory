@@ -1,0 +1,6 @@
+[centos]
+192.168.56.135 python_package=python3 pip_package=python3-pip
+
+[ubuntu]
+192.168.56.133 python_package=python3 pip_package=python3-pip
+
